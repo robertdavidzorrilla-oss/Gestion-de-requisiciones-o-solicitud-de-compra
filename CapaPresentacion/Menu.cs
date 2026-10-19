@@ -32,7 +32,19 @@ namespace CapaPresentacion
             this.Hide();
             editarRequisision.Show();
 
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ReportesG reportesG = new ReportesG();
+            this.Hide();
+            reportesG.Show();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace CapaPresentacion
 
         private RequisicionBuilder _builder;
         private readonly RequisicionesN _requisicionesN = new RequisicionesN();
-        
+
         public CrearRequisision()
         {
             InitializeComponent();
@@ -28,6 +28,8 @@ namespace CapaPresentacion
 
             _builder = new RequisicionBuilder();
         }
+
+
 
         private void CargarEstrategiasImpuesto()
         {
@@ -70,7 +72,7 @@ namespace CapaPresentacion
             }
         }
 
-       
+
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -126,7 +128,7 @@ namespace CapaPresentacion
                 if (_requisicionesN.GuardarRequisicion(reqFinal, out string mensajeError))
                 {
                     MessageBox.Show($"Requisición '{reqFinal.Codigo}' registrada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+
                 }
                 else
                 {
@@ -142,6 +144,13 @@ namespace CapaPresentacion
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Menu menu = new Menu();
+            this.Hide();
+            menu.Show();
         }
     }
 }

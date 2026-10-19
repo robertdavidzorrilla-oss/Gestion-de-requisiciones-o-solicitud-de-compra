@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            button1 = new Button();
             txtPrecio = new TextBox();
             label8 = new Label();
             btnGuardar = new Button();
@@ -56,6 +57,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.GradientInactiveCaption;
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(txtPrecio);
             panel1.Controls.Add(label8);
             panel1.Controls.Add(btnGuardar);
@@ -80,6 +82,17 @@
             panel1.Size = new Size(757, 532);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
+            // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.GradientActiveCaption;
+            button1.Location = new Point(686, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(68, 35);
+            button1.TabIndex = 19;
+            button1.Text = "Volver";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // txtPrecio
             // 
@@ -143,27 +156,27 @@
             lblTotal.AutoSize = true;
             lblTotal.Location = new Point(582, 129);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(36, 20);
+            lblTotal.Size = new Size(64, 20);
             lblTotal.TabIndex = 12;
-            lblTotal.Text = "0.00";
+            lblTotal.Text = "RD$0.00";
             // 
             // lblImpuesto
             // 
             lblImpuesto.AutoSize = true;
             lblImpuesto.Location = new Point(582, 89);
             lblImpuesto.Name = "lblImpuesto";
-            lblImpuesto.Size = new Size(36, 20);
+            lblImpuesto.Size = new Size(64, 20);
             lblImpuesto.TabIndex = 11;
-            lblImpuesto.Text = "0.00";
+            lblImpuesto.Text = "RD$0.00";
             // 
             // lblSubtotal
             // 
             lblSubtotal.AutoSize = true;
             lblSubtotal.Location = new Point(582, 40);
             lblSubtotal.Name = "lblSubtotal";
-            lblSubtotal.Size = new Size(44, 20);
+            lblSubtotal.Size = new Size(64, 20);
             lblSubtotal.TabIndex = 10;
-            lblSubtotal.Text = "$0.00";
+            lblSubtotal.Text = "RD$0.00";
             lblSubtotal.UseMnemonic = false;
             // 
             // label6
@@ -298,5 +311,6 @@
         private Button btnGuardar;
         private TextBox txtPrecio;
         private Label label8;
+        private Button button1;
     }
 }

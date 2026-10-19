@@ -76,5 +76,65 @@ namespace CapaDatos
                 }
             }
         }
+
+        //Vista para listar requisiciones
+        public DataTable ObtenerRequisiciones()
+        {
+            DataTable tabla = new DataTable();
+            using (SqlConnection conexion = Conexion.Instancia.CrearConexion())
+            {
+               
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM vw_ObtenerLasRequisiciones ORDER BY idRequisicion DESC", conexion))
+                {
+                    cmd.CommandType = CommandType.Text; 
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(tabla);
+                }
+            }
+            return tabla;
+        }
+
+
+        public DataTable ObtenerReporteRequisicionesAprobadas()
+        {
+            DataTable tabla = new DataTable();
+            using (SqlConnection conexion = Conexion.Instancia.CrearConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM vw_ReporteRequisicionAprobada ORDER BY idRequisicion DESC", conexion))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(tabla);
+                }
+            }
+            return tabla;
+        }
+
+        // Método para actualizar estado vía SP
+        public bool CambiarEstado(int idRequisicion, int nuevoIdEstado, out string mensajeError)
+        {
+            mensajeError = string.Empty;
+            try
+            {
+                using (SqlConnection conexion = Conexion.Instancia.CrearConexion())
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_CambiarEstadoRequisicion", conexion))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@idRequisicion", idRequisicion);
+                        cmd.Parameters.AddWithValue("@nuevoIdEstado", nuevoIdEstado);
+
+                        conexion.Open();
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                mensajeError = ex.Message;
+                return false;
+            }
+        }
     }
 }

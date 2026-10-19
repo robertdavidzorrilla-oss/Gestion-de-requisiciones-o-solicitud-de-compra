@@ -6,6 +6,29 @@ using System.Linq;
 
 namespace CapaNegocio.Patrones.Builder
 {
+
+    //Patrones DTO para el reporte de requisición
+    public class ReporteRequisicionDTO
+    {
+        public int IdRequisicion { get; set; }
+        public string CodigoRequisicion { get; set; }
+        public DateTime FechaCreacion { get; set; }
+        public string Estado { get; set; }
+        public string PoliticaImpuesto { get; set; }
+        public decimal SubtotalGeneral { get; set; }
+        public decimal ImpuestoTotal { get; set; }
+        public decimal TotalGeneral { get; set; }
+        public List<ItemReporteDTO> Detalle { get; set; } = new List<ItemReporteDTO>();
+    }
+
+    public class ItemReporteDTO
+    {
+        public string NombreProducto { get; set; }
+        public int Cantidad { get; set; }
+        public decimal PrecioUnitario { get; set; }
+        public decimal SubtotalLinea { get; set; }
+    }
+
     public class ItemRequisicionDTO
     {
         public string NombreProducto { get; set; }

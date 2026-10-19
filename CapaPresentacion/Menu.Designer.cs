@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            button4 = new Button();
             button2 = new Button();
             button1 = new Button();
             label1 = new Label();
             button3 = new Button();
-            button4 = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -48,6 +48,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(596, 396);
             panel1.TabIndex = 0;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.LightSeaGreen;
+            button4.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button4.Location = new Point(195, 297);
+            button4.Name = "button4";
+            button4.Size = new Size(194, 61);
+            button4.TabIndex = 3;
+            button4.Text = "Reportes";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // button2
             // 
@@ -92,17 +104,7 @@
             button3.TabIndex = 1;
             button3.Text = "Salir";
             button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.LightSeaGreen;
-            button4.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button4.Location = new Point(195, 297);
-            button4.Name = "button4";
-            button4.Size = new Size(194, 61);
-            button4.TabIndex = 3;
-            button4.Text = "Reportes";
-            button4.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // Menu
             // 
